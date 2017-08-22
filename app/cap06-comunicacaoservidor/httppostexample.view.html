@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+<head>
+    <meta charset="UTF-8">
+    <title>$http get example</title>
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+
+    <style>
+        .item {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body ng-controller="MainCtrl as mainCtrl">
+
+    <div class="container">
+        <h1>Hello Servers!</h1>
+
+        <div ng-repeat="todo in mainCtrl.items" class="item">
+            <div><span ng-bind="todo.label"></span></div>
+            <div>- by <span ng-bind="todo.author"></span></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form name="addForm"
+              ng-submit="mainCtrl.add()">
+
+            <div class="form-group">
+                <input type="text"
+                       placeholder="Label"
+                       ng-model="mainCtrl.newTodo.label"
+                       required>
+
+                <input  type="text"
+                        placeholder="Author"
+                        ng-model="mainCtrl.newTodo.author"
+                        required>
+
+                <input type="submit"
+                       class="btn btn-primary"
+                       value="SUBMIT"
+                       ng-disabled="addForm.$invalid"
+                >
+
+            </div>
+
+        </form>
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="httppostexample.controller.js"></script>
+
+</body>
+</html>

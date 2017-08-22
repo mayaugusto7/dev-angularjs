@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+</head>
+<body ng-controller="MainCtrl as ctrl">
+
+    <div class="container">
+
+        <button class="btn btn-primary" ng-click="ctrl.changeNotes()">Change Notes</button>
+
+        <br/>
+
+        <p class="label"> DOM Elements change every the someone clicks</p>
+
+        <div ng-repeat="note in ctrl.notes1">
+            {{note.$$hashKey}}
+            <span class="nome">{{note.nome}}</span>
+            <span class="author" ng-bind="note.done"></span>
+        </div>
+
+        <br/>
+
+        <div ng-repeat="note in ctrl.notes2 track by note.id">
+            {{note.$$hashKey}}
+            <span class="nome">{{note.nome}}</span>
+            <span class="author" ng-bind="note.done"></span>
+        </div>
+
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="app.js"></script>
+
+    <script src="ngrepeattrackby.controller.js"></script>
+
+</body>
+</html>

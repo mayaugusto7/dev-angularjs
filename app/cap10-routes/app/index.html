@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIFA Teams</title>
+
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+    <link href="styles/main.css">
+</head>
+<body ng-app="fifaApp" class="container landing">
+
+<div class="top-bar" ng-controller="MainCtrl as mainCtrl">
+    <div class="pull-left">
+        <span><a href="#/">FIFA TEAMS</a></span>
+
+    </div>
+    <div class="pull-right">
+        <span ng-hide="mainCtrl.userService.isLoggedIn">
+            <a href="#/login"></a>
+        </span>
+        <span ng-show="mainCtrl.userService.isLoggedIn">
+            <!-- rota do lado do servidor, e nao do lado do cliente -->
+            <a href="/api/logout">Logout</a>
+        </span>
+    </div>
+</div>
+
+<ng-view></ng-view>
+
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="../../bower_components/angular-route/angular-route.js"></script>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="app.js"></script>
+<script src="scripts/service/fifa.service.js"></script>
+<script src="scripts/service/user.service.js"></script>
+
+<script src="scripts/controller/main.controller.js"></script>
+<script src="scripts/controller/teamlist.controller.js"></script>
+<script src="scripts/controller/login.controller.js"></script>
+<script src="scripts/controller/teamdetails.controller.js"></script>
+
+</body>
+</html>

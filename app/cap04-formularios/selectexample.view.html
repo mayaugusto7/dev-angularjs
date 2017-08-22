@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+    <head>
+        <title>Notes App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+
+        <div style="padding: 10px" class="container">
+
+            <select ng-model="ctrl.selectedCountryId"
+                    ng-options="c.id as c.label for c in ctrl.countries">
+            </select>
+
+            Selected Country ID : {{ctrl.selectedCountryId}}
+        </div>
+
+        <div>
+            <select ng-model="ctrl.selectedCountry"
+                    ng-options="c.label for c in ctrl.countries">
+            </select>
+
+            Selected Country : {{ctrl.selectedCountry}}
+        </div>
+
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <script src="app.js"></script>
+        <script src="selectexample.controller.js"></script>
+    </body>
+</html>

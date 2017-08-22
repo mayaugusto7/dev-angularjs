@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+    <head>
+        <title>Notes App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+
+    <div style="padding: 10px" class="container">
+
+        <form novalidate name="myForm">
+            <div class="form-group">
+                <label>USERNAME
+                    <input  type="text"
+                            class="username"
+                            name="uname"
+                            ng-model="ctrl.user.username"
+                            required=""
+                            ng-minlength="4"
+                    >
+                </label>
+
+                <label> PASSWORD
+                    <input type="password"
+                           name="pwd"
+                           ng-model="ctrl.user.password"
+                           required=""
+                    >
+                </label>
+            </div>
+
+            <div class="form-group">
+                <ng-form name="profile">
+
+                    <label> FIRST NAME
+
+                        <input type="text"
+                               name="firstName"
+                               ng-model="ctrl.user.profile.firstName"
+                               required>
+                    </label>
+
+                    <label> MIDDLE NAME
+
+                        <input type="text"
+                               name="middleName"
+                               ng-model="ctrl.user.profile.middleName"
+                        >
+                    </label>
+
+                    <label> LAST NAME
+
+                        <input  type="text"
+                                name="lastName"
+                                ng-model="ctrl.user.profile.lastName"
+                        >
+                    </label>
+
+                    <label> DATE BIRTHDAY
+
+                        <input type="date"
+                           name="dob"
+                           placeholder="Date Birthday"
+                           ng-model="ctrl.user.profile.dob"
+                           >
+                    </label>
+
+                </ng-form>
+
+                <div class="form-group">
+                    <span ng-show="myForm.profile.$invalid">
+                        Please fill out the profile information
+                    </span>
+
+                    <input type="submit"
+                           value="SUBMIT"
+                           ng-disabled="myForm.$invalid">
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <script src="app.js"></script>
+        <script src="nestedforms.controller.js"></script>
+    </body>
+</html>

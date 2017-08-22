@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filters in Action Arrays</title>
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+
+</head>
+<body ng-app="filtersApp">
+
+    <div class="container" ng-controller="FilterCtrl as ctrl">
+
+        <br/>
+        <button class="btn btn-primary" ng-click="ctrl.currentFilter = 'string'">Filter with String</button>
+        <button class="btn btn-warning" ng-click="ctrl.currentFilter = 'obj'">Filter with Object</button>
+        <button class="btn btn-success" ng-click="ctrl.currentFilter = 'function'">Filter with Function</button>
+
+        <br/><br/>
+        Filter Text
+        <input class="checkbox" type="checkbox" ng-model="ctrl.filterOptions['string']">
+        <br/>
+        Show Done Only
+        <input class="checkbox" type="checkbox" ng-model="ctrl.filterOptions['object'].done">
+        <br/>
+        <ul>
+            <li ng-repeat="note in ctrl.notes | filter: ctrl.filterOptions[ctrl.currentFilter] | orderBy: ctrl.sortOrder | limitTo: 5">
+                {{note.label}} - {{note.type}} - {{note.done}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        var app = angular.module('filtersApp', []);
+
+        app.controller('FilterCtrl', [function () {
+
+            this.notes = [
+                {label: 'FC Todo', type: 'chore', done: false},
+                {label: 'FT Todo', type: 'task', done: false},
+                {label: 'FF Todo', type: 'fun', done: true},
+                {label: 'SC Todo', type: 'chore', done: false},
+                {label: 'ST Todo', type: 'task', done: true},
+                {label: 'SF Todo', type: 'fun', done: true},
+                {label: 'TC Todo', type: 'chore', done: false},
+                {label: 'TT Todo', type: 'task', done: false},
+                {label: 'TF Todo', type: 'fun', done: false}
+            ];
+
+            this.sortOrder = ['+type', '-label'];
+
+            this.filterOptions = {
+                "string": '',
+                "object": {done: false, label: 'C'},
+                "function": function (note) {
+                    return note.type === 'task' && note.done === false;
+                }
+            };
+
+            this.currentFilter = 'string';
+
+        }])
+
+    </script>
+</body>
+</html>

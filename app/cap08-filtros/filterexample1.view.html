@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filters Example</title>
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+
+</head>
+<body ng-app="filtersApp">
+
+    <div class="container" ng-controller="FilterCtrl as ctrl">
+
+        <div>
+            Amount as a number: {{ctrl.amount | number}}
+        </div>
+
+        <div>
+            Total Cost as ca currency: {{ctrl.totalCoast | currency}}
+        </div>
+
+        <div>
+            Total Cost in INR: {{ctrl.totalCost | currency:'INR'}}
+        </div>
+
+        <div>
+            Shouting the name: {{ctrl.name | uppercase}}
+        </div>
+
+        <div>
+            Shouting the name: {{ctrl.name | uppercase | limitTo: '6'}}
+        </div>
+
+        <div>
+            Whispering the name: {{ctrl.name | lowercase}}
+        </div>
+
+        <div>
+            Start time: {{ctrl.startTime | date: 'medium'}}
+        </div>
+
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        var app = angular.module('filtersApp', []);
+
+        app.controller('FilterCtrl', [function () {
+
+            this.amount = 1024;
+            this.totalCost = 4906;
+            this.name = 'Maycon Ribeiro';
+            this.startTime = new Date().getTime();
+        }])
+
+    </script>
+</body>
+</html>

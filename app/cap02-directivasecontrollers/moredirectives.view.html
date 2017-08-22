@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+
+    <style>
+        .done {
+            background-color: green;
+        }
+
+        .pending {
+            background-color: red;
+        }
+
+    </style>
+
+    <link href="../bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+
+</head>
+<body ng-controller="MainCtrl as ctrl">
+
+    <div ng-repeat="note in ctrl.notes" ng-class="ctrl.getNoteClass(note.done)">
+        <span class="label">{{note.label}}</span>
+
+        <span class="assignee"
+              ng-show="note.assingnee"
+              ng-bind="note.assingnee"
+            >
+
+        </span>
+
+    </div>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+
+    <script src="app.js"></script>
+
+    <script src="moredirectives.controller.js"></script>
+
+</body>
+</html>

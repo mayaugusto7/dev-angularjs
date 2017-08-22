@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filters in Action Arrays</title>
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+
+</head>
+<body ng-app="routingApp">
+
+    <div class="container">
+
+        <h2>AngularJS Routing Application</h2>
+
+        <ul>
+            <li><a href="#/">Default Route</a></li>
+            <li><a href="#/second">Second Route</a></li>
+            <li><a href="#/asdas">Nonexistent Route</a></li>
+        </ul>
+
+        <div ng-view></div>
+    </div>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="app.js"></script>
+
+
+</body>
+</html>

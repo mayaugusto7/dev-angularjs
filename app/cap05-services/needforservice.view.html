@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+</head>
+<body  ng-controller="MainCtrl as mainCtrl">
+
+    <div class="container">
+        <h1>Hello Controllers!</h1>
+        <button class="btn btn-primary" ng-click="mainCtrl.open('first')">Open First</button>
+        <button class="btn btn-danger" ng-click="mainCtrl.open('second')">Open Second</button>
+
+        <div ng-switch on="mainCtrl.tab">
+
+            <div ng-switch-when="first">
+
+                <div ng-controller="SubCtrl as ctrl">
+
+                    <h3>First tab</h3>
+                    <ul>
+                        <li ng-repeat="item in ctrl.list">
+                            <span ng-bind="item.label"></span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" ng-click="ctrl.add()">Add More Items</button>
+                </div>
+
+            </div>
+
+            <div ng-switch-when="second">
+
+                <div ng-controller="SubCtrl as ctrl">
+
+                    <h3>Second tab</h3>
+                    <ul>
+                        <li ng-repeat="item in ctrl.list">
+                            <span ng-bind="item.label"></span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" ng-click="ctrl.add()">Add More Items</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="needforservice.controller.js"></script>
+
+</body>
+</html>

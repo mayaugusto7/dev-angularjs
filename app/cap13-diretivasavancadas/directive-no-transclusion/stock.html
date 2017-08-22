@@ -1,0 +1,29 @@
+<div class="stock-dash">
+
+    <!-- stockData Objetivo definido na diretiva  -->
+
+    <!--Name:-->
+    <!--<span class="stock-name" ng-bind="stock.name"></span>-->
+
+    <!--Price:-->
+    <!--<span class="stock-price" ng-bind="stock.price | currency"></span>-->
+
+    <!--Percent Change:-->
+    <!--<span class="stock-change" ng-bind="getChange(stock) + '%'"></span>    -->
+
+    <!-- Removido e adicionado a tag span e ng-transclude -->
+    <!--Name:-->
+    <!--<span class="stock-name" ng-bind="stockData.name"></span>-->
+
+    <span ng-transclude></span>
+
+    Price:
+    <span class="stock-price" ng-bind="stockData.price | currency"></span>
+
+    Percent Change:
+    <span class="stock-change" ng-bind="getChange(stockData) + '%'"></span>
+
+    <!--<span class="stock-change" ng-bind="mainCtrl.getChange(stock) + '%'">-->
+    <!--</span>-->
+
+</div>

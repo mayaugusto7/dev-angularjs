@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Market App</title>
+</head>
+<body ng-app="stockMarketApp">
+
+<div ng-controller="MainCtrl as mainCtrl">
+    <h3>List of Stocks</h3>
+    <div ng-repeat="stock in mainCtrl.stocks">
+       <div stock-widget stock-data="stock">
+            This content will be blomn away
+       </div>
+    </div>
+
+</div>
+
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="../../bower_components/angular-route/angular-route.js"></script>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="app.js"></script>
+<script src="main.controller.js"></script>
+<script src="stock.widget.directive.js"></script>
+
+</body>
+</html>

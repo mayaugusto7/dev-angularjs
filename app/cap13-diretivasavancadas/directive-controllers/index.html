@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Market App</title>
+
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="main.css"></script>
+</head>
+<body ng-app="stockMarketApp">
+
+<div ng-controller="MainCtrl as mainCtrl">
+
+    <div ng-controller="MainCtrl as mainCtrl">
+         <tabs>
+             <tab title="First Tab">
+                 This is my first tab.
+                 The app started at {{mainCtrl.startedTime | date}}
+             </tab>
+             <tab title="Second Tab">
+                 This is my second tab.
+                 <div ng-repeat="stock in mainCtrl.stocks">
+                     Stock Name: {{stock.name}}
+                 </div>
+             </tab>
+         </tabs>
+    </div>
+
+</div>
+
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="../../bower_components/angular-route/angular-route.js"></script>
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+
+<script src="app.js"></script>
+<script src="main.controller.js"></script>
+<script src="tabs.directive.js"></script>
+<script src="tab.directive.js"></script>
+
+</body>
+</html>

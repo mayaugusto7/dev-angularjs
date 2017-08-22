@@ -1,0 +1,22 @@
+A diferenca entre controller e link diretivas
+
+controllers: usado para comunicacao entre as diretivas.
+
+link: são totalmente contidas e especificas a uma instancia da diretiva
+scopo do objeto da diretiva
+
+
+require: Significa que para uma diretiva tab funcionar, ela exige que um dos elementos-pai no HTML seja a
+diretiva tabs;
+ela recebe um array de string ou uma string, onde cada item é o nome da diretiva que deve ser usada em conjunto
+com a diretiva atual
+
+ex 1: require: 'tabs' diz ao angular procurar uma diretiva tabs
+ex 2: require: ['tabs', 'ngModel'] diz que tabs e ng-model devem estar presentes no elemnto que a nossa
+diretiva esta sendo usada
+
+caracteres diretivas:
+
+? opcional
+^ a diretiva deve estar presente em um dos elementos do pai, pode passar null no controller da diretiva
+?^ implica que um elemento-pai de nossa diretiva pode ou nao ter a diretiva tabs, porem deve injetada na funcao

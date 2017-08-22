@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+    <head>
+        <title>Notes App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css" rel="stylesheet">
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+
+    <div style="padding: 10px" class="container">
+
+        <form name="myForm" ng-submit="ctrl.submit()">
+            <div class="form-group">
+                <label>  USERNAME
+                    <input name="uname" type="text" ng-model="ctrl.user.username" ng-minlength="4"/>
+                </label>
+                <span ng-show="myForm.uname.$error.required">
+                    This is a required field
+                </span>
+                <span ng-show="myForm.uname.$error.minlength">
+                    Minimum length required is 4
+                </span>
+                <span ng-show="myForm.uname.$invalid">
+                    This field is invalid
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label> PASSWORD
+                    <input name="pwd" type="password" ng-model="ctrl.user.password" required/>
+                </label>
+
+                <span ng-show="myForm.pwd.$error.required">
+                    This is a required field
+                </span>
+
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-primary" value="SUBMIT" type="submit" ng-disabled="myForm.$invalid"/>
+            </div>
+
+        </form>
+
+    </div>
+
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <script src="app.js"></script>
+        <script src="formerrormessages.controller.js"></script>
+    </body>
+</html>
