@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+  Normal:
+  <div ng-repeat="(group, files) in groupedMedia">
+    {{group}}
+    <div ng-repeat="file in files">
+      <p>{{file.name + ':  '+ file.lastModified}}</p>
+    </div>
+  </div>
+  
+  Actual Map order:
+  <div ng-repeat="key in groupKeys(groupedMedia)">
+    {{key}}
+    <div ng-repeat="file in groupedMedia[key]">
+      <p>{{file.name + ':  '+ file.lastModified}}</p>
+    </div>
+  </div>
+</body>
+
+</html>
